@@ -16,8 +16,8 @@
                   Imagem
                </dt>
                <dd>
-                   <img src="@Url.Action(Model.FotoOficialCaminho,"Arquivo", new {id =Model.Id})" width="150" height = "150") />
-                   
+                   <img src="@Url.Action("ExibirImagem","Arquivo", new {id =Model.Id})" width="150" height="150" ) />
+
                </dd>
              }
             else
@@ -29,6 +29,7 @@
                    <img src="~/Images/semimagemjpeg.jpg" width="150" height = "150" />
                </dd>
               }
+        </div>
         <dt>
             @Html.DisplayNameFor(model => model.Nome)
         </dt>
