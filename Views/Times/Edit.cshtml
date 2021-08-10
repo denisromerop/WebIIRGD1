@@ -1,0 +1,69 @@
+﻿@model WebCampeonato.Models.Time
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Time</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vitorias" class="control-label"></label>
+                <input asp-for="Vitorias" class="form-control" />
+                <span asp-validation-for="Vitorias" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Empates" class="control-label"></label>
+                <input asp-for="Empates" class="form-control" />
+                <span asp-validation-for="Empates" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Derrotas" class="control-label"></label>
+                <input asp-for="Derrotas" class="form-control" />
+                <span asp-validation-for="Derrotas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gp" class="control-label"></label>
+                <input asp-for="Gp" class="form-control" />
+                <span asp-validation-for="Gp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gc" class="control-label"></label>
+                <input asp-for="Gc" class="form-control" />
+                <span asp-validation-for="Gc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EscudoCaminho" class="control-label"></label>
+                <input asp-for="EscudoCaminho" class="form-control" />
+                <span asp-validation-for="EscudoCaminho" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FotoOficialCaminho" class="control-label"></label>
+                <input asp-for="FotoOficialCaminho" class="form-control" />
+                <span asp-validation-for="FotoOficialCaminho" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

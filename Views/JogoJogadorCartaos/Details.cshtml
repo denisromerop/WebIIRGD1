@@ -1,0 +1,36 @@
+﻿@model WebCampeonato.Models.JogoJogadorCartao
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>JogoJogadorCartao</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdCartaoNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdCartaoNavigation.Descricao)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdJogadorNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdJogadorNavigation.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdJogoNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdJogoNavigation.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

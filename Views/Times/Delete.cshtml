@@ -1,0 +1,69 @@
+﻿@model WebCampeonato.Models.Time
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Time</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Vitorias)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Vitorias)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Empates)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Empates)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Derrotas)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Derrotas)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Gp)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Gp)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Gc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Gc)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EscudoCaminho)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EscudoCaminho)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FotoOficialCaminho)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FotoOficialCaminho)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

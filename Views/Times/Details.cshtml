@@ -1,0 +1,85 @@
+﻿@model WebCampeonato.Models.Time
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="panel-heading panel-head">Cadastro de Times</div>
+<div class="panel-body">
+    <h3>Exibição.</h3>
+        <div>
+          <hr/>
+          <dl class="d1-horizontal">
+            @if (Model.FotoOficialCaminho !=null)
+             {
+               <dt>
+                  Imagem
+               </dt>
+               <dd>
+                   <img src="@Url.Action(Model.FotoOficialCaminho,"Arquivo", new {id =Model.Id})" width="150" height = "150") />
+                   
+               </dd>
+             }
+            else
+             {
+               <dt>
+                  Imagem
+               </dt>
+               <dd>
+                   <img src="~/Images/semimagemjpeg.jpg" width="150" height = "150" />
+               </dd>
+              }
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Vitorias)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Vitorias)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Empates)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Empates)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Derrotas)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Derrotas)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Gp)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Gp)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Gc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Gc)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EscudoCaminho)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EscudoCaminho)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FotoOficialCaminho)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FotoOficialCaminho)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
