@@ -149,14 +149,6 @@ namespace WebCampeonato
                     .HasConstraintName("FK_Jogo_Jogador_Cartao_Jogo");
             });
 
-/*            modelBuilder.Entity<Resultado>(entity =>
-            {
-                entity.Property(e => e.nome)
-                    .HasMaxLength(100)
-                    .IsUnicode(true);
-            });
-*/
-
             modelBuilder.Entity<Time>(entity =>
             {
                 entity.HasIndex(e => e.Nome)
@@ -183,25 +175,48 @@ namespace WebCampeonato
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<TimeJogo>(entity =>
+                modelBuilder.Entity<TimeJogo>(entity =>
+                {
+                    entity.ToTable("Time_Jogo");
+
+                    entity.Property(e => e.IdJogo).HasColumnName("Id_Jogo");
+
+                    entity.Property(e => e.IdTime).HasColumnName("Id_Time");
+
+                    entity.HasOne(d => d.IdJogoNavigation)
+                        .WithMany(p => p.TimeJogo)
+                        .HasForeignKey(d => d.IdJogo)
+                        .HasConstraintName("FK_Time_Jogo_Jogo");
+
+                    entity.HasOne(d => d.IdTimeNavigation)
+                        .WithMany(p => p.TimeJogo)
+                        .HasForeignKey(d => d.IdTime)
+                        .HasConstraintName("FK_Time_Jogo_Time");
+                });
+
+            modelBuilder.Entity<Resultado>(entity =>
             {
-                entity.ToTable("Time_Jogo");
+                entity.ToTable("Resultado");
 
-                entity.Property(e => e.IdJogo).HasColumnName("Id_Jogo");
+                entity.Property(e => e.idjogo).HasColumnName("Id_Jogo");
 
-                entity.Property(e => e.IdTime).HasColumnName("Id_Time");
+                entity.Property(e => e.idTime).HasColumnName("Id_Time");
 
                 entity.HasOne(d => d.IdJogoNavigation)
-                    .WithMany(p => p.TimeJogo)
-                    .HasForeignKey(d => d.IdJogo)
-                    .HasConstraintName("FK_Time_Jogo_Jogo");
+                    .WithMany(p => p.Resultado)
+                    .HasForeignKey(d => d.idjogo)
+                    .HasConstraintName("FK_Resultado_Jogo");
 
                 entity.HasOne(d => d.IdTimeNavigation)
-                    .WithMany(p => p.TimeJogo)
-                    .HasForeignKey(d => d.IdTime)
-                    .HasConstraintName("FK_Time_Jogo_Time");
+                    .WithMany(p => p.Resultado)
+                    .HasForeignKey(d => d.idTime)
+                    .HasConstraintName("FK_Resultado_Time");
+
+
             });
 
         }
+
+        public DbSet<WebCampeonato.Models.Resultado> Resultado { get; set; }
     }
 }

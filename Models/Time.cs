@@ -24,6 +24,7 @@ namespace WebCampeonato.Models
 
         public ICollection<Jogador> Jogador { get; set; }
         public ICollection<TimeJogo> TimeJogo { get; set; }
+        public ICollection<Resultado> Resultado { get; set; }
 
         public Time(int id, string nome, int? vitorias, int? empates, int? derrotas, int? gp, int? gc, string escudoCaminho, string fotoOficialCaminho)
         {

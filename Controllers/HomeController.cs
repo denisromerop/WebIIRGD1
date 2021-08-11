@@ -10,8 +10,6 @@ namespace WebCampeonato.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly CampeonatoContext _ctx;
-
 
         public IActionResult Index()
         {

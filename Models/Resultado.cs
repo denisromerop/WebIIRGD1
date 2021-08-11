@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 
 namespace WebCampeonato.Models
 {
-    public class Resultado
+    public partial class Resultado
     {
-        public string nome { get; set; }
+        public int id { get; set; }
+        public int? idjogo { get; set; }
+        public int? idTime { get; set; }
         public int Vitorias { get; set; }
         public int empates { get; set; }
         public int derrotas { get; set; }
@@ -16,5 +18,9 @@ namespace WebCampeonato.Models
         public int saldodeGol { get; set; }
         public int qtdjogos { get; set; }
         public int PontosGanhos { get; set; }
+
+        public Jogo IdJogoNavigation { get; set; }
+        public Time IdTimeNavigation { get; set; }
     }
+
 }

@@ -1,5 +1,5 @@
 --ISO Syntax  
-
+--DROP PROCEDURE sp_AtualizaCampeonato
 CREATE PROCEDURE sp_AtualizaCampeonato
 as
 
@@ -13,7 +13,10 @@ delete from Resultado
 
 --Gols Pró e Gols Contra
 insert into resultado (id_jogo, id_time , Golspro, golsContra,vitorias,derrotas,empates,saldodeGol,qtdjogos, PontosGanhos)
-Select tj.id_jogo, tj.id_time, tj.gols as GolsPro, (select sum(tji.gols) from time_jogo tji where tj.Id_Time <> tji.Id_Time and tj.id_jogo = tji.id_jogo) as GolsContra, 0 as Vitorias, 0 as Derrotas, 0 as Empates, 0 SaldodeGols, 0 as Qtdjogos, 0 as PontosGanhos  from time_jogo tj 
+Select tj.id_jogo, tj.id_time, tj.gols as GolsPro, (select sum(tji.gols) From time_jogo tji where tj.Id_Time <> tji.Id_Time and tj.id_jogo = tji.id_jogo) as GolsContra, 0 as Vitorias, 0 as Derrotas, 0 as Empates, 0 SaldodeGols, 0 as Qtdjogos, 0 as PontosGanhos  from time_jogo tj 
+
+update resultado set golsContra =0 where golscontra IS null
+update resultado set saldodeGol =0 where saldodeGol IS null
 
 --Vitorias
 update Resultado set vitorias = 1 where golsPro > golsContra

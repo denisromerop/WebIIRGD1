@@ -19,5 +19,7 @@ namespace WebCampeonato.Models
         public ICollection<JogoArbitro> JogoArbitro { get; set; }
         public ICollection<JogoJogadorCartao> JogoJogadorCartao { get; set; }
         public ICollection<TimeJogo> TimeJogo { get; set; }
+        public ICollection<Resultado> Resultado { get; set; }
+
     }
 }
